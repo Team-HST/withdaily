@@ -13,10 +13,12 @@ buildscript {
     }
 }
 
-subprojects {
+allprojects {
     group 'com.withdaily'
     version '1.0.0'
+}
 
+subprojects {
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
