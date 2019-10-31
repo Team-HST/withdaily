@@ -1,0 +1,23 @@
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    def javaVersion = 1.8
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+    dependencies {
+        compileOnly('org.projectlombok:lombok')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+}
+
+project(':backend:service-api') {
+    dependencies {
+        compile project(':backend:core')
+    }
+}
